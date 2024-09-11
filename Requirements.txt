@@ -5,4 +5,8 @@ pytest==7.4.0
 pytest-cov==4.0.0
 pylint==2.15.3
 
+#analysis & data viz
+pandas==2.2.2
+matplotlib==3.9.2
+seaborn==0.13.2
 
