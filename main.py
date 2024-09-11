@@ -1,8 +1,7 @@
 # import packages
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-import os 
+import os
 
 
 # define functions
@@ -53,26 +52,37 @@ def std_age():
 
 
 def generate_histogram_age():
+    age_column = [col for col in df.columns if "age" in col]
+    plt.figure(figsize=(10, 6))
+    plt.hist(age_column, bins=bins, edgecolor="black")
+    plt.title("Age Distribution for Registered Voters in Durham County, NC")
+    plt.xlabel("Age")
+    plt.ylabel("Frequency")
     # create a histogram of age distribution
     return  # histogram, to be saved to an object?
 
-def save_histogram(histogram, filename='output.png', output_folder='output'):
+
+def save_histogram(histogram, filename="output.png", output_folder="output"):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    filepath = os.path.join(output_folder, filename)
+    plt.savefig(filepath)
+    plt.close()
+    print(f"Histogram saved to {filepath}")
 
 
+def save_histogram(data, filename="hist.png", output_folder="output"):
 
-
-def save_histogram(data, filename='hist.png', output_folder='output'):
-  
     # Ensure the output directory exists
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
-    
+
     # Create the histogram
     plt.figure(figsize=(10, 6))
-    plt.hist(data, bins=20, edgecolor='black')
-    plt.title('Histogram')
-    plt.xlabel('Value')
-    plt.ylabel('Frequency')
+    plt.hist(data, bins=20, edgecolor="black")
+    plt.title("Histogram")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
 
     # Save the histogram to the specified folder
     filepath = os.path.join(output_folder, filename)
@@ -80,6 +90,7 @@ def save_histogram(data, filename='hist.png', output_folder='output'):
     plt.close()
 
     print(f"Histogram saved to {filepath}")
+
 
 def main():
     df = read_csv_ncvoterdata(
