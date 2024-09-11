@@ -62,14 +62,7 @@ def save_histogram(histogram, filename='output.png', output_folder='output'):
 
 
 def save_histogram(data, filename='hist.png', output_folder='output'):
-    """
-    Creates a histogram from the provided data and saves it as a PNG file in the specified folder.
-
-    Parameters:
-    - data: List or array-like of numerical data to plot in the histogram.
-    - filename: The name of the file to save the histogram as.
-    - output_folder: The folder where the histogram image will be saved.
-    """
+  
     # Ensure the output directory exists
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
