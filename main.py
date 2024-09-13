@@ -1,6 +1,7 @@
 # import packages
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import os
 
 
@@ -23,7 +24,7 @@ def mean_age(df):
     return result
 
 
-def median_age():
+def median_age(df):
     # calculate median of column with "age" in it
     age_column = [col for col in df.columns if "age" in col]
     if age_column:
@@ -37,7 +38,7 @@ def median_age():
     return result
 
 
-def std_age():
+def std_age(df):
     # calculate standard deviation of column with "age" in it
     age_column = [col for col in df.columns if "age" in col]
     if age_column:
@@ -51,45 +52,30 @@ def std_age():
     return result
 
 
-def generate_histogram_age():
+def generate_histogram_age(df):
     age_column = [col for col in df.columns if "age" in col]
     plt.figure(figsize=(10, 6))
-    plt.hist(age_column, bins=bins, edgecolor="black")
+    bins = 6
+    plt.hist(df[age_column], color="orange", bins=bins, edgecolor="black")
     plt.title("Age Distribution for Registered Voters in Durham County, NC")
     plt.xlabel("Age")
     plt.ylabel("Frequency")
-    # create a histogram of age distribution
-    return  # histogram, to be saved to an object?
-
-
-def save_histogram(histogram, filename="output.png", output_folder="output"):
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+    plt.gca().yaxis.set_major_formatter(
+        ticker.FuncFormatter(lambda x, _: f"{int(x):,}")
+    )
+    filename = "output.png"
+    output_folder = "output"
     filepath = os.path.join(output_folder, filename)
     plt.savefig(filepath)
-    plt.close()
-    print(f"Histogram saved to {filepath}")
-
-
-def save_histogram(data, filename="hist.png", output_folder="output"):
-
-    # Ensure the output directory exists
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
-    # Create the histogram
-    plt.figure(figsize=(10, 6))
-    plt.hist(data, bins=20, edgecolor="black")
-    plt.title("Histogram")
-    plt.xlabel("Value")
-    plt.ylabel("Frequency")
-
-    # Save the histogram to the specified folder
-    filepath = os.path.join(output_folder, filename)
-    plt.savefig(filepath)
+    plt.show()
     plt.close()
 
-    print(f"Histogram saved to {filepath}")
+
+# def save_histogram(filename="output.png", output_folder="output"):
+#     filepath = os.path.join(output_folder, filename)
+#     plt.savefig(filepath)
+#     plt.close()
+#     print(f"Histogram saved to {filepath}")
 
 
 def main():
@@ -101,15 +87,19 @@ def main():
     print(median_age(df))
     print(std_age(df))
     # generate histogram of age distribution
-
+    generate_histogram_age(df)
     # write to output folder
+    # save_histogram()
 
 
 main()
 
-# generate mean, median, standard deviation
-
-# plot
-
-# plot distribution of age
-# print(df.head())
+# test
+# df = read_csv_ncvoterdata(
+#     "/Users/pdeguz01/Documents/git/Data/durhamco_voterfile_sep2024/ncvoter32.txt"
+# )
+# age_column = [col for col in df.columns if "age" in col]
+# print(df[age_column])
+# count_over_100 = (df[age_column] > 100).sum()
+# print(count_over_100)
+# # print(df)
