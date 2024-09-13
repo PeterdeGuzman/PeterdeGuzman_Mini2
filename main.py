@@ -65,12 +65,25 @@ def generate_histogram_age(df):
     plt.gca().yaxis.set_major_formatter(
         ticker.FuncFormatter(lambda x, _: f"{int(x):,}")
     )
-    filename = "output.png"
-    output_folder = "output"
-    filepath = os.path.join(output_folder, filename)
-    plt.savefig(filepath)
-    plt.show()
-    plt.close()
+
+    plt.savefig("output.png")
+    # plt.show()
+
+
+def save_to_markdown(df):
+    """save summary report to markdown"""
+    # Write the markdown table to a file
+    with open("tyrellco_voter.md", "w", encoding="utf-8") as file:
+        file.write("Mean Age of Sample of Registered Voters in Tyrell County\n")
+        file.write("mean_age(df)")
+        file.write("\n\n")  # Add a new line
+        file.write("Median Age of Sample of Registered Voters in Tyrell County\n")
+        file.write("median_age(df)")
+        file.write("\n\n")  # Add a new line
+        file.write("Standard Deviation of Age of Registered Voters in Tyrell County\n")
+        file.write("std_age(df)")
+        file.write("\n\n")  # Add a new line
+        file.write("!/output/output.png\n")
 
 
 def main():
@@ -83,6 +96,7 @@ def main():
     # generate histogram of age distribution
     # and save to output folder
     generate_histogram_age(df)
+    save_to_markdown(df)
 
 
 main()
