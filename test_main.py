@@ -1,45 +1,41 @@
 # Test function created in main.py script
 
-from main import read_csv_ncvoterdata, mean_age, median_age, std_age
+from main import mean_age, median_age, std_age, generate_histogram_age
 import os
+import numpy as np
+import pandas as pd
 
-df = read_csv_ncvoterdata(
-    "/Users/pdeguz01/Documents/git/Data/durhamco_voterfile_sep2024/ncvoter32.txt"
+num_rows = 100
+data = pd.DataFrame(
+    {
+        "RowID": np.random.randint(0, 201, size=num_rows),
+        "age": np.random.randint(18, 102, size=num_rows),
+    }
 )
 
 
-def test_mean_age(df):
-    result1 = mean_age(df)
-    assert result1 is not None
+def test_mean_age(data):
+    result1 = mean_age(data)
+    assert 18 <= result1 <= 65
 
 
-def test_median_age(df):
-    result2 = median_age(df)
-    assert result2 is not None
+def test_median_age(data):
+    result2 = mean_age(data)
+    assert 18 <= result2 <= 65
 
 
-def test_std_age(df):
-    result3 = std_age(df)
-    assert result3 is not None
+def test_std_age(data):
+    result3 = std_age(data)
+    assert 10 <= result3 <= 25
 
 
-def test_histogram_output():
-    # test if a plot is generated in output folder
-    filename = "output.png"
-    output_folder = "output"
-    filepath = os.path.join(output_folder, filename)
-    if not filepath:
-        raise FileNotFoundError(
-            f"The directory {filepath} to store the histogram does not exist."
-        )
-    for file_name in filepath:
-        if file_name.lower().endswith("png"):
-            return True
-    return False
+def test_generate_histogram_age(data):
+    result4 = generate_histogram_age(data)
+    assert result4 is None
 
 
 if __name__ == "__main__":
-    test_mean_age(df)
-    test_median_age(df)
-    test_std_age(df)
-    test_histogram_output()
+    test_mean_age(data)
+    test_median_age(data)
+    test_std_age(data)
+    test_generate_histogram_age(data)

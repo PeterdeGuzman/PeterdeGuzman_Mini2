@@ -7,7 +7,9 @@ import os
 
 # define functions
 def read_csv_ncvoterdata(voterdata):
-    return pd.read_csv(voterdata, sep="\t", header=0, encoding="unicode_escape")
+    return pd.read_csv(
+        voterdata, sep="\t", header=0, encoding="unicode_escape", low_memory=False
+    )
 
 
 def mean_age(df):
