@@ -5,37 +5,37 @@ import os
 import numpy as np
 import pandas as pd
 
-num_rows = 100
+num_rows = 10
 data = pd.DataFrame(
     {
-        "RowID": np.random.randint(0, 201, size=num_rows),
-        "age": np.random.randint(18, 102, size=num_rows),
+        "RowID": np.random.randint(0, 101, size=num_rows),
+        "age": [18, 19, 21, 25, 35, 40, 45, 45, 55, 65],
     }
 )
 
 
-def test_mean_age(data):
+def test_mean_age():
     result1 = mean_age(data)
-    assert 18 <= result1 <= 65
+    assert result1 == 36.8
 
 
-def test_median_age(data):
-    result2 = mean_age(data)
-    assert 18 <= result2 <= 65
+def test_median_age():
+    result2 = median_age(data)
+    assert result2 == 37.5
 
 
-def test_std_age(data):
+def test_std_age():
     result3 = std_age(data)
-    assert 10 <= result3 <= 25
+    assert result3 > 16
 
 
-def test_generate_histogram_age(data):
+def test_generate_histogram_age():
     result4 = generate_histogram_age(data)
     assert result4 is None
 
 
 if __name__ == "__main__":
-    test_mean_age(data)
-    test_median_age(data)
-    test_std_age(data)
-    test_generate_histogram_age(data)
+    test_mean_age()
+    test_median_age()
+    test_std_age()
+    test_generate_histogram_age()
