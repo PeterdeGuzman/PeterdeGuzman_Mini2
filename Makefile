@@ -6,8 +6,8 @@ format:
 	black *.py
 
 lint:
-	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
-	
+	ruff check *.py test_*.py 
+# mylib/*.py *.ipynb	
 test: 
 	python -m pytest -cov=main test_main.py
 

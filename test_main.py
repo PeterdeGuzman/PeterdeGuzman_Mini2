@@ -1,7 +1,6 @@
 # Test function created in main.py script
 
 from main import mean_age, median_age, std_age, generate_histogram_age
-import os
 import numpy as np
 import pandas as pd
 
