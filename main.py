@@ -71,13 +71,6 @@ def generate_histogram_age(df):
     plt.close()
 
 
-# def save_histogram(filename="output.png", output_folder="output"):
-#     filepath = os.path.join(output_folder, filename)
-#     plt.savefig(filepath)
-#     plt.close()
-#     print(f"Histogram saved to {filepath}")
-
-
 def main():
     df = read_csv_ncvoterdata(
         "/Users/pdeguz01/Documents/git/Data/durhamco_voterfile_sep2024/ncvoter32.txt"
@@ -87,19 +80,8 @@ def main():
     print(median_age(df))
     print(std_age(df))
     # generate histogram of age distribution
+    # and save to output folder
     generate_histogram_age(df)
-    # write to output folder
-    # save_histogram()
 
 
 main()
-
-# test
-# df = read_csv_ncvoterdata(
-#     "/Users/pdeguz01/Documents/git/Data/durhamco_voterfile_sep2024/ncvoter32.txt"
-# )
-# age_column = [col for col in df.columns if "age" in col]
-# print(df[age_column])
-# count_over_100 = (df[age_column] > 100).sum()
-# print(count_over_100)
-# # print(df)
