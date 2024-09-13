@@ -74,8 +74,9 @@ def generate_histogram_age(df):
 
 
 def main():
+    # load data
     df = read_csv_ncvoterdata(
-        "/Users/pdeguz01/Documents/git/Data/durhamco_voterfile_sep2024/ncvoter32.txt"
+        "/Users/pdeguz01/Documents/git/PeterdeGuzman_Mini2/ncvoter89.txt"
     )
     # summary statistics
     print(mean_age(df))
