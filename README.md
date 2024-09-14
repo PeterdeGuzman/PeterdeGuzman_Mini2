@@ -7,7 +7,6 @@
 This project creates a Python script that utilizes the Pandas project to generate descriptive statistics and a data visualization. 
 
 
-
 ### Data Used in this Project:
 This project uses a subset of voter registration data from the North Carolina State Board of Elections. This data was pulled on September 13th, 2024, and a subset of the data was used for this project. This is not a representative sample of registered voters in Tyrell County, North Carolina. 
 
