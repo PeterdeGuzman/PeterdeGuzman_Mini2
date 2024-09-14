@@ -1,6 +1,7 @@
  # This is a README for IDS 706 Mini Project 2
 
 ## Status Badge 
+[![PeterdeGuzman](https://github.com/nogibjj/PeterdeGuzman_Mini2/actions/workflows/main.yml/badge.svg)](https://github.com/nogibjj/PeterdeGuzman_Mini2/actions/workflows/main.yml)
 
 ### Project Motivation:
 This project creates a Python script that utilizes the Pandas project to generate descriptive statistics and a data visualization. 
@@ -20,6 +21,7 @@ More information and a link to the data is available at: https://www.ncsbe.gov/r
     5. generate_histogram_age() - this function identifies the age column in the DataFrame and createss a histogram to display the age distribution for a sample of registered voters in the county of interest. 
 
 ### Example Data Visualization
+![alt text](output.png)
 
 ### Project Directory
 PeterdeGuzman_Mini2/
