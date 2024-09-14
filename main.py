@@ -58,7 +58,7 @@ def generate_histogram_age(df):
     plt.figure(figsize=(10, 6))
     bins = 6
     plt.hist(df[age_column], color="orange", bins=bins, edgecolor="black")
-    plt.title("Age Distribution for Registered Voters in Durham County, NC")
+    plt.title("Age Distribution for Registered Voters in Tyrell County, NC")
     plt.xlabel("Age")
     plt.ylabel("Frequency")
     plt.gca().yaxis.set_major_formatter(
