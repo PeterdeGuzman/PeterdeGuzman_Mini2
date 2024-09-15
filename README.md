@@ -20,7 +20,7 @@ More information and a link to the data is available at: https://www.ncsbe.gov/r
     5. generate_histogram_age() - this function identifies the age column in the DataFrame and createss a histogram to display the age distribution for a sample of registered voters in the county of interest. 
 
 ### Example -- Data Visualization
-![alt text](output.png)
+!(output.png)
 Note: This data was sampled from the Tyrell County, North Carolina dataset on registered voters, and is not representative of the population. 
 
 ### Project Directory
