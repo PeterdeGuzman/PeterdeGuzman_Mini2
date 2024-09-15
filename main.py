@@ -1,5 +1,6 @@
 # import packages
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
@@ -64,6 +65,8 @@ def generate_histogram_age(df):
     plt.gca().yaxis.set_major_formatter(
         ticker.FuncFormatter(lambda x, _: f"{int(x):,}")
     )
+    x_ticks = np.arange(0, 110, 10)
+    plt.xticks(x_ticks)
 
     plt.savefig("output.png")
     # plt.show()
